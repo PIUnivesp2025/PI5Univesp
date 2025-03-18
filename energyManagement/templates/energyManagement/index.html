@@ -1,0 +1,17 @@
+{% extends "energyManagement/layout.html" %}
+{% load static %}
+{% block body %}
+<center>
+    <div>
+        <button type="button" class="btn btn-primary" onclick="ledOn();">Turn On</button>
+        <button type="button" class="btn btn-secondary" onclick="ledOff();">Turn Off</button>
+        <img src="{% static 'energyManagement/led.png' %}" id="ledImg" alt="Led" width="30vw" style="margin-left: 3vw;">
+    </div>
+    <hr>
+    <div>
+        <img src="{% static 'energyManagement/pot.png' %}" id="potImg" alt="Potenciometer" width="80vw" style="margin-left: 3vw;">
+        <span>Voltage: </span>
+        <span><span id="volts">0</span> V</span>
+    </div>
+</center>
+{% endblock %}
