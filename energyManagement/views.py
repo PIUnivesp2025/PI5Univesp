@@ -1,40 +1,36 @@
 from django.shortcuts import render
-# We have to install the library below with command pip install pyserial
-import serial
+from django.http import HttpResponse
 from django.http import JsonResponse
+import serial # pip install pyserial
 
-
-# Start the serial communication adjusting its parameters
-serialCom = serial.Serial("COM3", 9600, timeout=1)
+# Adjust the serial port and the baud rate
+#serialCom = serial.Serial("COM3", 9600, timeout=1)
 
 # Create your views here.
 def index(request):
     return render(request, "energyManagement/index.html")
 
+def loadOn(request):
+    serialCom.write(b"1")
+    return JsonResponse({"status": "Load turned on"})
 
-def ledOn(request):
-    serialCom.write(b"B")
-    return JsonResponse({"status": "LED turned on"})
+def loadOff(request):
+    serialCom.write(b"0")
+    return JsonResponse({"status": "Load turned off"})
 
-
-def ledOff(request):
-    serialCom.write(b"b")
-    return JsonResponse({"status": "LED turned off"})
-
-
-def potenciometer(request):
+def presence(request):
+    serialCom.flushInput()
     packet = ""
     data = ""
-    serialCom.flushInput()
     packet = serialCom.readline()
 
     if packet != "":
         data = packet.decode("utf")
-        # Remove new line character
+        # Remove new line charactere
         data = data.rstrip("\n")
-        # Remove carriage return character
+        # Remove carriage return charactere?
         data = data.rstrip("\r")
         print(f"data: {data}")
 
-    # In order to return a string the parameter safe must be set to False
+    # In order to return a string, the parameter safe=False must be passed
     return JsonResponse(data, safe=False)

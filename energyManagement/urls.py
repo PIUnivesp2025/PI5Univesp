@@ -6,7 +6,7 @@ urlpatterns = [
     path("", views.index, name="index"),
 
     # API routes
-    path("ledOn", views.ledOn, name="ledOn"),
-    path("ledOff", views.ledOff, name="ledOff"),
-    path("pot", views.potenciometer, name="pot")
+    path("loadOn", views.loadOn, name="loadOn"),
+    path("loadOff", views.loadOff, name="loadOff"),
+    path("presence", views.presence, name="presence")
 ]
