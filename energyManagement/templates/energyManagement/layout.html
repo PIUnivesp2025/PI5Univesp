@@ -3,18 +3,24 @@
 <html lang="en">
     <head>
         <title>{% block title %}Energy Management{% endblock %}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="{% static 'energyManagement/energyManagement.js' %}"></script>
     </head>
     <body>
-        <header style="padding-top: 2%; padding-bottom: 2%;">
+        <header style="padding-top: 1%; padding-bottom: 2%; padding-left: 1%;">
             <center>
                 <div>
-                    <span style="font-size: 3vw; font-weight: bold;">Energy Management with</span>
+                    <img src="{% static 'energyManagement/borboleta.png' %}" alt="Com Carinho Boutique Arduino" width="10%">
+                    <span style="font-size: 3vw; font-weight: bold; color: #ff7990; font-style: italic;">Com Carinho Boutique</span>
+                </div>
+                <div>
+                    <img src="{% static 'energyManagement/borboleta.png' %}" alt="Com Carinho Boutique Arduino" width="5%">
+                    <span style="font-size: 3vw; font-weight: bold;">Energy Management with </span>
                     <img src="{% static 'energyManagement/dj.png' %}" id="djangoLogo" alt="Logo Django" width="10%">
                     <span style="font-size: 3vw; font-weight: bold;">and </span>
                     <img src="{% static 'energyManagement/arduinoLogo.png' %}" id="arduinoLogo" alt="Logo Arduino" width="10%">
+                    <img src="{% static 'energyManagement/borboletaInvert.png' %}" alt="Com Carinho Boutique Arduino" width="5%">
                 </div>
             </center>
         </header>
